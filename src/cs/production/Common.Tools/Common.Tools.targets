@@ -1,0 +1,41 @@
+<Project>
+
+    <!-- Version -->
+    <PropertyGroup Condition="'$(Version)' == '' OR '$(Version)' == '1.0.0'">
+        <Version>0.0.0.0-pre</Version>
+    </PropertyGroup>
+
+    <!-- Enable/disable code coverage -->
+    <ItemGroup Condition=" '$(IsEnabledCodeCoverage)' == 'true' ">
+        <Compile Remove="$(MSBuildThisFileDirectory)AssemblyDisableCodeCoverage.cs" />
+    </ItemGroup>
+
+    <!-- Enable/disable CLS complaint -->
+    <ItemGroup>
+        <Compile Condition=" '$(IsEnabledCLSCompliant)' != 'false' " Remove="$(MSBuildThisFileDirectory)AssemblyDisableCLSCompliant.cs" />
+        <Compile Condition=" '$(IsEnabledCLSCompliant)' != 'true' " Remove="$(MSBuildThisFileDirectory)AssemblyEnableCLSCompliant.cs" />
+    </ItemGroup>
+
+    <!-- Properties folder -->
+    <PropertyGroup>
+        <DotSettingsFilePath>$(MSBuildProjectFile).DotSettings</DotSettingsFilePath>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Condition="Exists('$(DotSettingsFilePath)')" Update="$(DotSettingsFilePath)" Visible="false" />
+        <None Condition="Exists('$(DotSettingsFilePath)')" Include="$(DotSettingsFilePath)" Link="Properties/$(DotSettingsFilePath)" />
+    </ItemGroup>
+
+    <!-- Code analysis -->
+    <Import Project="$(MSBuildThisFileDirectory)/CodeAnalysis/CodeAnalysis.targets" />
+
+    <!-- NuGet -->
+    <Import Project="$(MSBuildThisFileDirectory)/NuGet/NuGet.targets" />
+
+    <!-- Remove obj folder; this folder sometimes shows up in the solution explorer in Rider / Visual Studio -->
+    <ItemGroup>
+        <Compile Remove="obj\**" />
+        <EmbeddedResource Remove="obj\**" />
+        <None Remove="obj\**" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,69 @@
+<Project>
+
+  <!-- Custom project settings -->
+  <PropertyGroup>
+    <GitRepositoryPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))</GitRepositoryPath>
+  </PropertyGroup>
+
+  <!-- MSBuild project settings -->
+  <PropertyGroup>
+    <Company>bottlenoselabs</Company>
+    <Authors>bottlenoselabs</Authors>
+    <Copyright>© $([System.DateTime]::Now.ToString(yyyy)) Bottlenose Labs Inc.</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>true</AppendRuntimeIdentifierToOutputPath>
+    <MSBuildTreatWarningsAsErrors>true</MSBuildTreatWarningsAsErrors>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+  </PropertyGroup>
+
+  <!-- Platform -->
+  <PropertyGroup>
+    <IsWindows Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true' ">true</IsWindows>
+    <IsMacOS Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true' ">true</IsMacOS>
+    <IsLinux Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' ">true</IsLinux>
+    <IsFreeBSD Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true' ">true</IsFreeBSD>
+    <ArchitectureCaseSensitive>$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)</ArchitectureCaseSensitive>
+    <Architecture>$(ArchitectureCaseSensitive.ToLower())</Architecture>
+    <Is32Bit Condition=" '$(Architecture)' == 'x86' OR '$(Architecture)' == 'arm32' ">true</Is32Bit>
+    <Is32Bit Condition=" '$(Architecture)' != 'x86' AND '$(Architecture)' != 'arm32' ">false</Is32Bit>
+    <Is64Bit Condition=" '$(Architecture)' == 'x64' OR '$(Architecture)' == 'arm64' ">true</Is64Bit>
+    <Is64Bit Condition=" '$(Architecture)' != 'x64' AND '$(Architecture)' != 'arm64' ">false</Is64Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(IsWindows)' == 'true' ">
+    <DefineConstants>WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(IsMacOS)' == 'true' ">
+    <DefineConstants>MACOS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(IsLinux)' == 'true' ">
+    <DefineConstants>LINUX</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(IsFreeBSD)' == 'true' ">
+    <DefineConstants>FREEBSD</DefineConstants>
+  </PropertyGroup>
+
+  <!-- Content include all files + compile all .cs files -->
+  <ItemGroup>
+    <Content Include="$(_CommonToolsContentDirectoryPath)/**/*.*">
+      <Pack>false</Pack>
+      <Link>Properties/bottlenoselabs/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+    <Compile Include="$(_CommonToolsContentDirectoryPath)/**/*.cs" >
+      <Link>Properties/bottlenoselabs/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
+  <!-- Code analysis -->
+  <Import Project="$(MSBuildThisFileDirectory)/CodeAnalysis/CodeAnalysis.props" />
+
+  <!-- NuGet -->
+  <Import Project="$(MSBuildThisFileDirectory)/nuget/NuGet.props" />
+
+</Project>

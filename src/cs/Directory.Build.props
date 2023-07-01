@@ -1,0 +1,9 @@
+<Project>
+
+  <PropertyGroup>
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+  </PropertyGroup>
+  
+  <Import Project="$(MSBuildThisFileDirectory)production/Common.Tools/bottlenoselabs.Common.Tools.props" />
+
+</Project>

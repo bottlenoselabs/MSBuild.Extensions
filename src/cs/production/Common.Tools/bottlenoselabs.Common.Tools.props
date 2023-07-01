@@ -1,0 +1,12 @@
+<Project>
+
+  <PropertyGroup>
+    <_CommonToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)Common.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</_CommonToolsDirectoryPath>
+    <_CommonToolsDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)../content/Common.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..'))</_CommonToolsDirectoryPath>
+    <_CommonToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)Common.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</_CommonToolsContentDirectoryPath>
+    <_CommonToolsContentDirectoryPath Condition="Exists('$(MSBuildThisFileDirectory)../content/Common.Tools.props')">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)../content'))</_CommonToolsContentDirectoryPath>
+  </PropertyGroup>
+
+  <Import Project="$(_CommonToolsContentDirectoryPath)/Common.Tools.props" />
+
+</Project>

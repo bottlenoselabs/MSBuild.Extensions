@@ -1,0 +1,5 @@
+<Project>
+
+    <Import Project="$(MSBuildThisFileDirectory)production/Common.Tools/bottlenoselabs.Common.Tools.targets" />
+
+</Project>

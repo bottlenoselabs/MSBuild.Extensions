@@ -1,19 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <IsPackable>true</IsPackable>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
-    
+
+    <PropertyGroup><EmitLegacyAssetsFileItems>True</EmitLegacyAssetsFileItems></PropertyGroup>
+
     <PropertyGroup>
-        <EnableAnalyzers>true</EnableAnalyzers>
-        <EnableAnalyzersStyleCop>true</EnableAnalyzersStyleCop>
+        <IsEnabledAnalyzers>true</IsEnabledAnalyzers>
+        <IsEnabledAnalyzersStyleCop>true</IsEnabledAnalyzersStyleCop>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
     </PropertyGroup>
-    
+
+    <ItemGroup>
+      <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)../StyleCop.globalconfig" Link="Properties/StyleCop.globalconfig" />
+    </ItemGroup>
+
     <ItemGroup>
       <PackageReference Include="bottlenoselabs.Common.Tools" Version="0.0.0-pre">
         <PrivateAssets>all</PrivateAssets>

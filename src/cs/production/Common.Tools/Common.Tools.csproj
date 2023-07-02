@@ -32,8 +32,8 @@
 
   <!-- Common.Tools.props will include compile files, but then they will get compiled twice for this .csproj -->
   <ItemGroup>
-    <Compile Remove="$(_CommonToolsContentDirectoryPath)/**/*.cs"/>
-    <None Include="$(_CommonToolsContentDirectoryPath)/**/*.cs"/>
+    <Compile Remove="$(_CommonToolsContentDirectoryPath)/**/*.cs" />
+    <None Include="$(_CommonToolsContentDirectoryPath)/**/*.cs" />
   </ItemGroup>
 
   <!-- NuGet package content-->
@@ -50,9 +50,9 @@
       <PackagePath>build/</PackagePath>
       <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
-    <Content Remove="$(MSBuildThisFileDirectory)obj/**/*"/>
-    <Content Remove="$(MSBuildThisFileDirectory)bin/**/*"/>
-    <Content Remove="$(MSBuildThisFileDirectory)Common.Tools.csproj"/>
+    <Content Remove="$(MSBuildThisFileDirectory)obj/**/*" />
+    <Content Remove="$(MSBuildThisFileDirectory)bin/**/*" />
+    <Content Remove="$(MSBuildThisFileDirectory)Common.Tools.csproj" />
   </ItemGroup>
 
 </Project>

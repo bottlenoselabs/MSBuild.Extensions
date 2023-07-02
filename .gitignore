@@ -1,12 +1,11 @@
-# Build artifacts
-bin/
-obj/
+# .NET build artifacts
+/artifacts
+
+# .NET NuGet packages
+/nupkg
 
 # macOS
 .DS_Store
-
-# NuGet package archives
-*.nupkg
 
 # JetBrains
 .idea/

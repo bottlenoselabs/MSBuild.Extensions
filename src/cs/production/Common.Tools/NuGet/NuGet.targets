@@ -26,7 +26,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup Condition="Exists('$(ReadmeFilePath)')">
-    <None Include="$(ReadmeFilePath)" Pack="true" PackagePath="/"/>
+    <None Include="$(ReadmeFilePath)" Pack="true" PackagePath="/" Link="Properties/bottlenoselabs/Common.Tools/README.md"/>
   </ItemGroup>
 
 </Project>

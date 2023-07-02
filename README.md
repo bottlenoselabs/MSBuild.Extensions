@@ -12,7 +12,22 @@ Common code and MSBuild extensions for all C# projects at Bottlenose Labs.
 </PackageReference>
 ```
 
-1. Create a `.globalconfig` file to configure C# Roslyn analyzers:
+2. Create `Directory.Build.props` file above the directory of your C# projects with a `UseArtifactsOutput` set to `true` in a property group. This will cause all `bin` and `obj` folders to be placed under the `artifacts` directory at the root of the Git repository. To change this directory set `ArtifactsPath`.
+
+```xml
+<Project>
+  <PropertyGroup>
+    <UseArtifactsOutput>true</UseArtifactsOutput> <!-- Only available in .NET 8 -->
+    <ArtifactsPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/artifacts</ArtifactsPath> <!-- Only available in .NET 8 -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers.Unstable" Version="*" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
+```
+
+3. Create a `.globalconfig` file to configure C# Roslyn analyzers:
 
 ```xml
 # NOTE: Requires .NET 5 SDK (VS2019 16.8 or later)

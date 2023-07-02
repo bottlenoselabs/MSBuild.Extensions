@@ -5,7 +5,7 @@ namespace ClassLibrary1;
 
 public class Class1
 {
-    private readonly string _x;
+    public readonly string _x;
 
     public Class1(string x)
     {

@@ -2,12 +2,12 @@
 
   <!-- Custom settings -->
   <PropertyGroup>
-    <IsEnableAnalyzers Condition=" '$(IsEnableAnalyzers)' == '' ">false</IsEnableAnalyzers>
+    <IsEnabledAnalyzers Condition=" '$(IsEnabledAnalyzers)' == '' ">false</IsEnabledAnalyzers>
     <IsEnabledCodeAnalysisSuppressions Condition=" '$(IsEnabledCodeAnalysisSuppressions)' == '' ">true</IsEnabledCodeAnalysisSuppressions>
   </PropertyGroup>
 
   <!-- MSBuild settings -->
-  <PropertyGroup Condition=" '$(IsEnableAnalyzers)' == 'true' ">
+  <PropertyGroup Condition=" '$(IsEnabledAnalyzers)' == 'true' ">
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisMode>all</AnalysisMode>

@@ -1,11 +1,5 @@
 <Project>
 
-  <!-- Rosyln analyzers -->
-  <PropertyGroup Condition=" '$(EnableAnalyzers)' == 'true' ">
-    <!-- NOTE: Rosyln expects a variable named `CodeAnalysisRuleSet` to exist and will use it! Do NOT change the name of this property! -->
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)/CodeAnalysis.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <!-- StyleCop -->
   <Import Project="$(MSBuildThisFileDirectory)/StyleCop/StyleCop.targets" />
 

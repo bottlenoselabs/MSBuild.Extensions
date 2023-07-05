@@ -64,6 +64,6 @@
   <Import Project="$(MSBuildThisFileDirectory)/CodeAnalysis/CodeAnalysis.props" />
 
   <!-- NuGet -->
-  <Import Project="$(MSBuildThisFileDirectory)/nuget/NuGet.props" />
+  <Import Project="$(MSBuildThisFileDirectory)/NuGet/NuGet.props" />
 
 </Project>

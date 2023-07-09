@@ -2,12 +2,15 @@
 
   <!-- Settings -->
   <PropertyGroup>
-    <IsEnabledAnalyzersStyleCop Condition=" '$(IsEnabledAnalyzersStyleCop)' == '' ">false</IsEnabledAnalyzersStyleCop>
+    <IsEnabledAnalyzersStyleCop Condition=" '$(IsEnabledAnalyzersStyleCop)' == '' ">true</IsEnabledAnalyzersStyleCop>
     <StyleCopSettingsFilePath Condition=" '$(StyleCopSettingsFilePath)' == '' ">$(MSBuildThisFileDirectory)StyleCop.json</StyleCopSettingsFilePath>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(IsEnabledAnalyzers)' == 'true' AND '$(IsEnabledAnalyzersStyleCop)' == 'true' ">
     <GlobalAnalyzerConfigFiles Include="$(MSBuildThisFileDirectory)BottlenoseLabsStyleCop.globalconfig" Link="Properties/BottlenoseLabsStyleCop.globalconfig" />
+    <PackageReference Include="StyleCop.Analyzers.Unstable" Version="*" >
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

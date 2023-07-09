@@ -17,11 +17,11 @@ Common code and MSBuild extensions for all C# projects at Bottlenose Labs.
     <ArtifactsPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/artifacts</ArtifactsPath> <!-- Only available in .NET 8 -->
   </PropertyGroup>
 
-  <PackageReference Include="bottlenoselabs.Common.Tools" Version="*">
-    <PrivateAssets>all</PrivateAssets>
-  </PackageReference>
-
   <ItemGroup>
+    <PackageReference Include="bottlenoselabs.Common.Tools" Version="*">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+
     <PackageReference Include="StyleCop.Analyzers.Unstable" Version="*">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -1,5 +1,5 @@
 <Project>
-  
+
   <PropertyGroup Condition=" '$(IsEnabledAnalyzers)' == 'true' AND '$(IsEnabledAnalyzersStyleCop)' == 'true' ">
     <NoWarn Condition=" '$(GenerateDocumentationFile)' == 'true' ">$(NoWarn);1573;1591;1712</NoWarn>
     <NoWarn Condition=" '$(GenerateDocumentationFile)' == 'false' ">$(NoWarn);SA0001</NoWarn>

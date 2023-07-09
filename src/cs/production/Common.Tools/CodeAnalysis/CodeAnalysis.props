@@ -2,7 +2,7 @@
 
   <!-- Custom settings -->
   <PropertyGroup>
-    <IsEnabledAnalyzers Condition=" '$(IsEnabledAnalyzers)' == '' ">false</IsEnabledAnalyzers>
+    <IsEnabledAnalyzers Condition=" '$(IsEnabledAnalyzers)' == '' ">true</IsEnabledAnalyzers>
     <IsEnabledCodeAnalysisSuppressions Condition=" '$(IsEnabledCodeAnalysisSuppressions)' == '' ">true</IsEnabledCodeAnalysisSuppressions>
   </PropertyGroup>
 

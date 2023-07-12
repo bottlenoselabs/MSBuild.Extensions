@@ -7,13 +7,7 @@
 
     <!-- Enable/disable code coverage -->
     <ItemGroup Condition=" '$(IsEnabledCodeCoverage)' == 'true' ">
-        <Compile Remove="$(MSBuildThisFileDirectory)AssemblyDisableCodeCoverage.cs" />
-    </ItemGroup>
-
-    <!-- Enable/disable CLS complaint -->
-    <ItemGroup>
-        <Compile Condition=" '$(IsEnabledCLSCompliant)' != 'false' " Remove="$(MSBuildThisFileDirectory)AssemblyDisableCLSCompliant.cs" />
-        <Compile Condition=" '$(IsEnabledCLSCompliant)' != 'true' " Remove="$(MSBuildThisFileDirectory)AssemblyEnableCLSCompliant.cs" />
+        <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage" />
     </ItemGroup>
 
     <!-- Properties folder -->

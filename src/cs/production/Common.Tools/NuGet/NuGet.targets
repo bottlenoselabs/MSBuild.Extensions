@@ -1,7 +1,7 @@
 <Project>
 
   <!-- NuGet -->
-  <PropertyGroup>
+  <PropertyGroup Condition=" '$(PackageId)' == '' ">
     <PackageId>$(Company).$(AssemblyName)</PackageId>
   </PropertyGroup>
 
@@ -19,14 +19,15 @@
     </Content>
   </ItemGroup>
 
-  <PropertyGroup>
-    <ReadmeFilePath>$(GitRepositoryPath)/README.md</ReadmeFilePath>
+  <PropertyGroup Condition=" '$(PackageReadmeFile)' == '' ">
+    <PackageReadmeFile>$(GitRepositoryPath)/README.md</PackageReadmeFile>
   </PropertyGroup>
-  <PropertyGroup Condition="Exists('$(ReadmeFilePath)')">
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
-  <ItemGroup Condition="Exists('$(ReadmeFilePath)')">
-    <None Include="$(ReadmeFilePath)" Pack="true" PackagePath="/" Link="Properties/bottlenoselabs/Common.Tools/README.md"/>
+  <ItemGroup Condition=" '$(PackageReadmeFile)' != '' ">
+    <None Include="$(ReadmeFilePath)">
+      <Pack>true</Pack>
+      <PackagePath>/</PackagePath>
+      <Link>Properties/NUGET_PACKAGE_README.md</Link>
+    </None>
   </ItemGroup>
 
 </Project>

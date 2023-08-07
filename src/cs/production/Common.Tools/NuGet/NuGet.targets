@@ -19,15 +19,4 @@
     </Content>
   </ItemGroup>
 
-  <PropertyGroup Condition=" '$(PackageReadmeFile)' == '' ">
-    <PackageReadmeFile>$(GitRepositoryPath)/README.md</PackageReadmeFile>
-  </PropertyGroup>
-  <ItemGroup Condition=" '$(PackageReadmeFile)' != '' ">
-    <None Include="$(ReadmeFilePath)">
-      <Pack>true</Pack>
-      <PackagePath>/</PackagePath>
-      <Link>Properties/NUGET_PACKAGE_README.md</Link>
-    </None>
-  </ItemGroup>
-
 </Project>

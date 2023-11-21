@@ -1,6 +1,6 @@
 # common-cs
 
-Common code and MSBuild extensions for all C# projects at Bottlenose Labs.
+Common MSBuild extensions for all C# projects at Bottlenose Labs.
 
 ## Developers: How to use
 

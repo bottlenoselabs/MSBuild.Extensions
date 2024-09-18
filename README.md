@@ -8,7 +8,7 @@ Common MSBuild extensions for all C# projects at Bottlenose Labs.
    
    - Set `UseArtifactsOutput` to `true` in a property group. This will cause all `bin` and `obj` folders to be placed under the `artifacts` directory at the root of the Git repository. To change this directory set `ArtifactsPath`.
    - Set `ArtifactsPath` to a directory where the `bin/ProjectName` and `obj/ProjectName` folders will be generated.
-   - Add `bottlenoselabs.Common.Tools` NuGet package with wildcard version.
+   - Add `bottlenoselabs.MSBuild.Extensions` NuGet package with wildcard version.
 
 ```xml
 <Project>

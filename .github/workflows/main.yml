@@ -10,6 +10,6 @@ on:
 
 jobs:
 
-  pack-job:
-    name: "Pack"
-    uses: "./.github/workflows/pack.yml"
+  test-job:
+    name: "Test"
+    uses: "./.github/workflows/test.yml"

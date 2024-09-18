@@ -5,7 +5,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>bottlenoselabs.Common.Tools</RootNamespace>
+    <RootNamespace>bottlenoselabs.MSBuild.Extensions</RootNamespace>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
   </PropertyGroup>
 
@@ -32,8 +32,8 @@
 
   <!-- Common.Tools.props will include compile files, but then they will get compiled twice for this .csproj -->
   <ItemGroup>
-    <Compile Remove="$(_CommonToolsContentDirectoryPath)/**/*.cs" />
-    <None Include="$(_CommonToolsContentDirectoryPath)/**/*.cs" />
+    <Compile Remove="$(_MSBuildExtensionsContentDirectoryPath)/**/*.cs" />
+    <None Include="$(_MSBuildExtensionsContentDirectoryPath)/**/*.cs" />
   </ItemGroup>
 
   <!-- NuGet package content-->
@@ -42,17 +42,18 @@
       <Pack>true</Pack>
       <PackagePath>content/</PackagePath>
     </Content>
-    <Content Update="$(MSBuildThisFileDirectory)bottlenoselabs.Common.Tools.props">
+    <Content Update="$(MSBuildThisFileDirectory)bottlenoselabs.MSBuild.Extensions.props">
       <PackagePath>build/</PackagePath>
       <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
-    <Content Update="$(MSBuildThisFileDirectory)bottlenoselabs.Common.Tools.targets">
+    <Content Update="$(MSBuildThisFileDirectory)bottlenoselabs.MSBuild.Extensions.targets">
       <PackagePath>build/</PackagePath>
       <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
+
     <Content Remove="$(MSBuildThisFileDirectory)obj/**/*" />
     <Content Remove="$(MSBuildThisFileDirectory)bin/**/*" />
-    <Content Remove="$(MSBuildThisFileDirectory)Common.Tools.csproj" />
+    <Content Remove="$(MSBuildThisFileDirectory)MSBuild.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

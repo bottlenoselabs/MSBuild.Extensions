@@ -51,11 +51,11 @@
 
   <!-- Content include all files + compile all .cs files -->
   <ItemGroup>
-    <Content Include="$(_CommonToolsContentDirectoryPath)/**/*.*">
+    <Content Include="$(_MSBuildExtensionsContentDirectoryPath)/**/*.*">
       <Pack>false</Pack>
       <Link>Properties/bottlenoselabs/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Content>
-    <Compile Include="$(_CommonToolsContentDirectoryPath)/**/*.cs" >
+    <Compile Include="$(_MSBuildExtensionsContentDirectoryPath)/**/*.cs" >
       <Link>Properties/bottlenoselabs/$(MSBuildThisFileName)/%(RecursiveDir)%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>

@@ -4,7 +4,7 @@
     <UseArtifactsOutput>true</UseArtifactsOutput>
     <ArtifactsPath>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), .gitignore))/artifacts</ArtifactsPath>
   </PropertyGroup>
-  
-  <Import Project="$(MSBuildThisFileDirectory)production/Common.Tools/bottlenoselabs.Common.Tools.props" />
+
+  <Import Project="$(MSBuildThisFileDirectory)production/MSBuild.Extensions/bottlenoselabs.MSBuild.Extensions.props" />
 
 </Project>

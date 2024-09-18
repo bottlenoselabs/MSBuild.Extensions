@@ -18,7 +18,7 @@ Common MSBuild extensions for all C# projects at Bottlenose Labs.
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="bottlenoselabs.Common.Tools" Version="*">
+    <PackageReference Include="bottlenoselabs.MSBuild.Extensions" Version="*">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
 
